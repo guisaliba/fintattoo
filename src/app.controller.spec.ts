@@ -15,8 +15,10 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('should return homepage welcoming message', () => {
+      expect(appController.getHomepage()).toBe(
+        'Welcome to Fintattoo homepage!',
+      );
     });
   });
 });
