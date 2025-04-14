@@ -1,15 +1,15 @@
 {
   "name": "fintattoo",
   "version": "0.0.1",
-  "description": "",
+  "description": "A finance tracker app for tattoo artists and studio owners.",
   "author": "",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
-    "start:dev": "nest start --watch",
+    "start:dev": "npm run lint && npm run format && nest start --watch -b swc",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
