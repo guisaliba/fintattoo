@@ -12,7 +12,6 @@ import type { DataSource } from 'typeorm';
       isGlobal: true,
       envFilePath: ['.env'],
     }),
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
@@ -21,7 +20,9 @@ import type { DataSource } from 'typeorm';
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
       entities: [],
+      migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
       autoLoadEntities: true,
+      synchronize: false,
     }),
   ],
   controllers: [AppController],
