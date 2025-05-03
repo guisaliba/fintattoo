@@ -1,5 +1,13 @@
 import { Social } from 'src/socials/social.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  Relation,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity('users')
 export class User {
@@ -22,5 +30,11 @@ export class User {
   password: string;
 
   @OneToMany(() => Social, (social) => social.user)
-  socials: Social[];
+  socials?: Relation<Social[]>;
+
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ name: 'updated_at' })
+  updatedAt: Date;
 }
