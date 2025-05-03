@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import type { DataSource } from 'typeorm';
+// import type { DataSource } from 'typeorm';
 
 @Module({
   imports: [
@@ -19,6 +19,7 @@ import type { DataSource } from 'typeorm';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_NAME,
+      // entities: [__dirname + '/**/*.entity{.ts,.js}'],
       entities: [],
       migrations: [__dirname + '/migrations/**/*{.ts,.js}'],
       autoLoadEntities: true,
@@ -28,6 +29,4 @@ import type { DataSource } from 'typeorm';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {
-  constructor(private dataSource: DataSource) {}
-}
+export class AppModule {}
