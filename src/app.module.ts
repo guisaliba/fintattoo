@@ -6,6 +6,8 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppDataSource } from './data-source';
 
+import { UsersModule } from './users/users.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -13,6 +15,7 @@ import { AppDataSource } from './data-source';
       envFilePath: ['.env'],
     }),
     TypeOrmModule.forRoot(AppDataSource.options),
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
