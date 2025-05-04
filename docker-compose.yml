@@ -15,7 +15,9 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
-      - "8080:5432"
+      - "3000:5432"
+    networks:
+      - nestjs-network
 
   app:
     build:
@@ -31,6 +33,12 @@ services:
         condition: service_healthy
     volumes:
       - ./src:/app/src
+    networks:
+      - nestjs-network
+
+networks:
+  nestjs-network:
+    driver: bridge
 
 volumes:
   pgdata:
