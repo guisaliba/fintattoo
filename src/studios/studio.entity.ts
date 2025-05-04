@@ -27,7 +27,7 @@ export class Studio {
   @OneToOne(() => Address, (address) => address.studio)
   address: Relation<Address>;
 
-  @OneToMany(() => Social, (social) => social.id, { nullable: true })
+  @OneToMany(() => Social, (social) => social.studio, { nullable: true })
   socials: Relation<Social[]>;
 
   @OneToMany(() => Appointment, (appointment) => appointment.studio, {
