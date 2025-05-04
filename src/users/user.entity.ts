@@ -1,3 +1,4 @@
+import { Appointment } from 'src/appointments/appointment.entity';
 import { Social } from 'src/socials/social.entity';
 import {
   Entity,
@@ -7,6 +8,7 @@ import {
   Relation,
   CreateDateColumn,
   UpdateDateColumn,
+  Timestamp,
 } from 'typeorm';
 
 @Entity('users')
@@ -30,11 +32,14 @@ export class User {
   password: string;
 
   @OneToMany(() => Social, (social) => social.user)
-  socials?: Relation<Social[]>;
+  socials: Relation<Social[]>;
+
+  @OneToMany(() => Appointment, (appointment) => appointment.user)
+  appointments: Relation<Appointment[]>;
 
   @CreateDateColumn({ name: 'created_at' })
-  createdAt: Date;
+  createdAt: Timestamp;
 
   @UpdateDateColumn({ name: 'updated_at' })
-  updatedAt: Date;
+  updatedAt: Timestamp;
 }
