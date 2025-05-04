@@ -30,7 +30,7 @@ export class Studio {
   @OneToMany(() => Social, (social) => social.id, { nullable: true })
   socials: Relation<Social[]>;
 
-  @OneToMany(() => Appointment, (appointment) => appointment.id, {
+  @OneToMany(() => Appointment, (appointment) => appointment.studio, {
     nullable: true,
   })
   appointments: Relation<Appointment[]>;
