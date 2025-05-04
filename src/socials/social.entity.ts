@@ -25,10 +25,10 @@ export class Social {
   @Column()
   url: string;
 
-  @ManyToOne(() => User, (user) => user.socials)
+  @ManyToOne(() => User, (user) => user.socials, { nullable: true })
   user: Relation<User>;
 
-  @ManyToOne(() => Studio, (studio) => studio.socials)
+  @ManyToOne(() => Studio, (studio) => studio.socials, { nullable: true })
   studio: Relation<Studio>;
 
   @CreateDateColumn({ name: 'created_at' })

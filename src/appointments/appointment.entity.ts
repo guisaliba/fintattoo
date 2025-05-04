@@ -1,3 +1,4 @@
+import { Studio } from 'src/studios/studio.entity';
 import { User } from 'src/users/user.entity';
 import {
   Entity,
@@ -17,6 +18,9 @@ export class Appointment {
 
   @ManyToOne(() => User, (user) => user.appointments)
   user: Relation<User>;
+
+  @ManyToOne(() => Studio, (studio) => studio.appointments)
+  studio: Relation<Studio>;
 
   @Column()
   date: Timestamp;

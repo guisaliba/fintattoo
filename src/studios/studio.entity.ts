@@ -1,4 +1,5 @@
 import { Address } from 'src/addresses/address.entity';
+import { Appointment } from 'src/appointments/appointment.entity';
 import { Social } from 'src/socials/social.entity';
 import {
   Entity,
@@ -20,14 +21,19 @@ export class Studio {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ nullable: true })
   description: string;
 
   @OneToOne(() => Address, (address) => address.id)
   address: Relation<Address>;
 
-  @OneToMany(() => Social, (social) => social.id)
+  @OneToMany(() => Social, (social) => social.id, { nullable: true })
   socials: Relation<Social[]>;
+
+  @OneToMany(() => Appointment, (appointment) => appointment.id, {
+    nullable: true,
+  })
+  appointments: Relation<Appointment[]>;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Timestamp;
