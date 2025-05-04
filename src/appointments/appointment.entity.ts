@@ -22,7 +22,7 @@ export class Appointment {
   @ManyToOne(() => Studio, (studio) => studio.appointments)
   studio: Relation<Studio>;
 
-  @Column()
+  @Column({ type: 'timestamptz' })
   date: Timestamp;
 
   @Column()
