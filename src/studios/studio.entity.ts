@@ -24,7 +24,7 @@ export class Studio {
   @Column({ nullable: true })
   description: string;
 
-  @OneToOne(() => Address, (address) => address.id)
+  @OneToOne(() => Address, (address) => address.studio)
   address: Relation<Address>;
 
   @OneToMany(() => Social, (social) => social.id, { nullable: true })
